@@ -26,11 +26,11 @@ def tokenize(text):
     return clean_tokens
 
 # load data
-engine = create_engine('sqlite:///../data/YourDatabaseName.db')
-df = pd.read_sql_table('YourTableName', engine)
+engine = create_engine('sqlite:///../data/DisasterResponse.db')
+df = pd.read_sql_table('DisasterResponse', engine)
 
 # load model
-model = joblib.load("../models/your_model_name.pkl")
+model = joblib.load("../models/classifier.pkl")
 
 
 # index webpage displays cool visuals and receives user input text for model
@@ -42,6 +42,10 @@ def index():
     # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
+    most_freq_categories = df.iloc[:, 4:].sum().sort_values(ascending=False).keys().tolist()[:5]
+    most_freq_categories_counts = df.iloc[:, 4:].sum().sort_values(ascending=False).values.tolist()[:5]
+    least_freq_categories = df.iloc[:, 4:].sum().sort_values(ascending=True).keys().tolist()[:5]
+    least_freq_categories_counts = df.iloc[:, 4:].sum().sort_values(ascending=True).values.tolist()[:5]
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
@@ -61,6 +65,42 @@ def index():
                 },
                 'xaxis': {
                     'title': "Genre"
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x=most_freq_categories,
+                    y=most_freq_categories_counts
+                )
+            ],
+
+            'layout': {
+                'title': 'Most Frequent Categories',
+                'yaxis': {
+                    'title': "Messages"
+                },
+                'xaxis': {
+                    'title': "Category"
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x=least_freq_categories,
+                    y=least_freq_categories_counts
+                )
+            ],
+
+            'layout': {
+                'title': 'Least Frequent Categories',
+                'yaxis': {
+                    'title': "Messages"
+                },
+                'xaxis': {
+                    'title': "Category"
                 }
             }
         }
