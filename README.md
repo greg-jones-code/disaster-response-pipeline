@@ -19,23 +19,23 @@ The repository is divided into three sections based on the functionality of the 
 
 Data:
 
-- 'process_data.py' - ETL script to read the disaster datasets, clean the data and generate and store it in an SQLite database. This script will output a SQLite database file.
+- `process_data.py` - ETL script to read the disaster datasets, clean the data and generate and store it in an SQLite database. This script will output a SQLite database file.
 
-- 'disaster_messages.csv' - csv file containing text and medium information for messages sent during disaster events.
+- `disaster_messages.csv` - csv file containing text and medium information for messages sent during disaster events.
 
-- 'disaster_categories.csv' - csv file containing categorisation data for messages sent during disaster events.
+- `disaster_categories.csv` - csv file containing categorisation data for messages sent during disaster events.
 
 Models:
 
-- 'train_classifier.py' - machine learning pipeline script that uses NLTK, as well as scikit-learn's Pipeline and GridSearchCV to output a final model that uses the cleaned message data from process_data.py to predict classifications for 36 different categories (multi-output classification). This file also exports the trained model as a pickle file. 
+- `train_classifier.py` - machine learning pipeline script that uses NLTK, as well as scikit-learn's Pipeline and GridSearchCV to output a final model that uses the cleaned message data from process_data.py to predict classifications for 36 different categories (multi-output classification). This file also exports the trained model as a pickle file. 
 
 App:
 
-- 'run.py' - script to build the back-end of the web app using the Flask framework.
+- `run.py` - script to build the back-end of the web app using the Flask framework.
 
-- 'master.html' - html file containing the front-end layout for the web app.
+- `master.html` - html file containing the front-end layout for the web app.
 
-- 'go.html' - html file containing the front-end layout for the search bar within the web app.
+- `go.html` - html file containing the front-end layout for the search bar within the web app.
 
 ## Running Pipeline<a name="running"></a>
 
@@ -43,22 +43,22 @@ To run the pipeline, set up your database and model, and deploy the web app from
 
 1. Run the process_data.py script specifying filepaths for loading the disaster message and category datasets and saving the SQLite database:
 
-'''
-  python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db
-'''
+```
+    python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db
+```
 
 2. Run the train_classifier.py script specifying filepaths for loading the SQLite database and saving the trained model:
 
-'''
-  python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
-'''
+```
+    python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
+```
 
 3. Deploy the web app:
 
-'''
-  cd app
-  python run.py
-'''
+```
+    cd app
+    python run.py
+```
 
 4. Go to http://0.0.0.0:3001/ to view web app
 
