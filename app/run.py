@@ -42,6 +42,8 @@ def index():
     # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
+    
+    # Extract top 5 most and least frequent categories and the number of messages
     most_freq_categories = df.iloc[:, 4:].sum().sort_values(ascending=False).keys().tolist()[:5]
     most_freq_categories_counts = df.iloc[:, 4:].sum().sort_values(ascending=False).values.tolist()[:5]
     least_freq_categories = df.iloc[:, 4:].sum().sort_values(ascending=True).keys().tolist()[:5]
@@ -68,6 +70,7 @@ def index():
                 }
             }
         },
+        # Create a bar chart of the most frequent categories
         {
             'data': [
                 Bar(
@@ -86,6 +89,7 @@ def index():
                 }
             }
         },
+        # Create a bar chart of the least frequent categories
         {
             'data': [
                 Bar(
