@@ -60,13 +60,19 @@ python run.py
 
 Below are a few screenshots from the web app.
 
-![search bar](https://github.com/greg-jones-code/disaster-response-pipeline/images/search-bar.png)
+The first image shows the search bar where an emergency worker can input a new message and get classification results in several categories - the results from an example message are shown in the second image.
 
-![distribution of message genres](https://github.com/greg-jones-code/disaster-response-pipeline/images/distribution-of-message-genres-plot.png)
+![search bar](https://github.com/greg-jones-code/disaster-response-pipeline/blob/main/images/search-bar.png)
 
-![most frequent categories](https://github.com/greg-jones-code/disaster-response-pipeline/images/most-frequent-categories-plot.png)
+![search bar results](https://github.com/greg-jones-code/disaster-response-pipeline/blob/main/images/search-bar-results.png)
 
-![least frequent categories](https://github.com/greg-jones-code/disaster-response-pipeline/images/least-frequent-categories-plot.png)
+The web app also contains three visualisations to display the distribution of message genres and the most and least frequent categories predicted from the messages within the dataset. Examples of these plots are shown below.
+
+![distribution of message genres](https://github.com/greg-jones-code/disaster-response-pipeline/blob/main/images/distribution-of-message-genres-plot.png)
+
+![most frequent categories](https://github.com/greg-jones-code/disaster-response-pipeline/blob/main/images/most-frequent-categories-plot.png)
+
+![least frequent categories](https://github.com/greg-jones-code/disaster-response-pipeline/blob/main/images/least-frequent-categories-plot.png)
 
 ## Licensing, Authors, Acknowledgements<a name="licensing"></a>
 
